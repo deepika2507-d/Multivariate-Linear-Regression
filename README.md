@@ -30,26 +30,23 @@ Print the regression coefficients (regr.coef_) and intercept (regr.intercept_).
 
 import pandas as pd
 from sklearn import linear_model
-
 df = pd.read_csv("carsemission.csv")
 X = df[['Weight', 'Volume']]
 y = df['CO2']
-
 regr = linear_model.LinearRegression()
 regr.fit(X, y)
 print('Coefficients:', regr.coef_)
-print('Intercept:',regr.intercept_)
-
-predictedCO2 = regr.predict([[3300, 1300]])
-print('Predicted CO2 for the corresponding weight and volume',predictedCO2)
-
-
+print('Intercept:', regr.intercept_)
+input_data = pd.DataFrame({'Weight': [3300], 'Volume': [1300]})
+predictedCO2 = regr.predict(input_data)
+print('Predicted CO2 for the corresponding weight and volume:', predictedCO2)
 
 
 
 ```
 ## Output:
-![image](https://github.com/user-attachments/assets/8c539a86-15d2-42e2-8f92-4b53b989b041)
+![Screenshot 2025-05-20 184745](https://github.com/user-attachments/assets/3bb14853-ff24-4d63-8fb4-19c027a7decc)
+
 
 ### Insert your output
 
